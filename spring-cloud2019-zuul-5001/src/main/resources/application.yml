@@ -1,0 +1,33 @@
+server:
+  port: 5001
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+  instance:
+    instance-id: spring-cloud2019-zuul-5001
+    prefer-ip-address: true
+info:
+  app.name: spring-cloud2019-zuul-5001
+  company.name: www.baidu.com
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
+spring:
+  application:
+    name: SPRING-CLOUD2019-ZUUL
+zuul:
+  host:
+    connect-timeout-millis: 10000
+    socket-timeout-millis: 60000
+  routes:
+    sso.serviceId: SPRING-CLOUD2019-SSO
+    sso.path: /sso/**
+  ignored-services: "*"
+  prefix: /gssznb
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000

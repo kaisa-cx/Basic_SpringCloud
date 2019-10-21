@@ -1,0 +1,3 @@
+spring:
+  application:
+    name:  spring-cloud2019-eureka-client  # 需要从git 上读取的资源名称。 不需要yml 后缀
